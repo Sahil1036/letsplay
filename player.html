@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="player.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="player.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar bg-body-tertiary navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand">Navbar</a>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      </header>
+
+       <main>
+          <div class="left">
+            <p class="home-p pages">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" role="img"  class="Svg-sc-1bi12j5-0 gSLhUO home-active-icon" viewBox="0 0 24 24">
+                <path d="M21 22V7.174l-9.001-5.195L3 7.214V22h7v-7h4v7z"></path>
+              </svg>
+              Home
+            </p>
+            <p class="pages">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" role="img" class="Svg-sc-1bi12j5-0 gSLhUO search-active-icon" viewBox="0 0 24 24">
+                <path d="M16.736 16.262A8.457 8.457 0 0019 10.5a8.5 8.5 0 10-3.779 7.067l4.424 5.18 1.521-1.299-4.43-5.186zM10.5 17C6.916 17 4 14.084 4 10.5S6.916 4 10.5 4 17 6.916 17 10.5 14.084 17 10.5 17z" fill="#B3B3B3"></path>
+              </svg>
+              Search
+            </p>
+            <p class="pages">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" role="img" class="Svg-sc-1bi12j5-0 gSLhUO collection-active-icon" viewBox="0 0 24 24">
+                <path d="M14.617 3.893l-1.827.814 7.797 17.513 1.827-.813-7.797-17.514zM3 22h2V4H3v18zm5 0h2V4H8v18z"></path>
+              </svg>
+              Your Library
+            </p>
+            <p class="pages">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO">
+                <path d="M13.764 2.727a4.057 4.057 0 00-5.488-.253.558.558 0 01-.31.112.531.531 0 01-.311-.112 4.054 4.054 0 00-5.487.253A4.05 4.05 0 00.974 5.61c0 1.089.424 2.113 1.168 2.855l4.462 5.223a1.791 1.791 0 002.726 0l4.435-5.195A4.052 4.052 0 0014.96 5.61a4.057 4.057 0 00-1.196-2.883zm-.722 5.098L8.58 13.048c-.307.36-.921.36-1.228 0L2.864 7.797a3.072 3.072 0 01-.905-2.187c0-.826.321-1.603.905-2.187a3.091 3.091 0 012.191-.913 3.05 3.05 0 011.957.709c.041.036.408.351.954.351.531 0 .906-.31.94-.34a3.075 3.075 0 014.161.192 3.1 3.1 0 01-.025 4.403z"></path>
+              </svg>
+              Favorite Songs
+            </p>
+          </div>
+        
+          <div class="right"> 
+            <h2>latest</h2>
+            <div class="list">
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+          </div>
+            <h2>latest</h2>
+            <div class="list">
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+          </div>
+            <h2>latest</h2>
+            <div class="list">
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+            <div>
+              <img src="https://upload.wikimedia.org/wikipedia/tr/4/47/Darmaduman.jpg" alt="#">
+              <p>Darmaduman</p>
+              <a>Duman</a>
+            </div>
+          </div>
+        </div>
+        
+      </main> 
+
+          <section class="player-show">
+          <div class='player_inner__middle'>
+            <div class='cube'>
+              <div class='cube_inner'>
+                <div class='cube_inner__front'>
+                  <div class='bars'>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                    <div class='bars_bar'></div>
+                  </div>
+                  <div class='details'>
+                    <div class='details_album'></div>
+                    <h2>Koan Sound - Meanwhile in the future</h2>
+                    <h3>Funkblaster</h3>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> 
+
+      <footer>
+        <div class="player">
+          <div class="head">
+            <div class="back"></div>
+            <div class="front">
+              <div class="avatar">
+                <img
+                  src="http://vignette4.wikia.nocookie.net/lyricwiki/images/1/15/Semisonic_portrait.jpg/revision/latest?cb=20090409134209"
+                />
+              </div>
+              <div class="infos">
+                <div class="titulo_song">KFC - Killing Fabulous Chickens</div>
+                <div class="duracao_song">
+                  <i class="fa fa-clock-o"> Total time 45:12</i>
+                </div>
+                <div class="tags">
+                  <span>Educativo</span><span>Galinhas</span
+                  ><span>Podcast</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline">
+            <div class="soundline"></div>
+            <div class="controllers active">
+              <div class="back"></div>
+              <div class="play"></div>
+              <div class="forward"></div>
+            </div>
+          </div>
+        </div>
+        <div class="rotation"></div>
+      </footer>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --color:#7E22CC;
+    --lightcolor:#aa75d9;
+    --bgColor:black;
+    --subColor:white;
+}
+
+header{
+    color:var(--color);
+    background-color: var(--bgColor);
+}
+
+
+.line_gap{
+    height: 5px;
+    width: 83.333%;
+    margin: auto;
+    background-color: var(--color);
+}
+
+ul li a:hover{
+    text-decoration: overline solid 3px;
+}
+
+.handel_dark{
+    color: var(--bgColor);
+    background-color: var(--color);
+}
+
+.handel_dark_box{
+    color: var(--subColor);
+    background-color: var(--color);
+}
+
+.head_bottom_content p{
+    /* width: 350px; */
+    /* border-radius: 25px; */
+    /* margin: auto; */
+}
+
+section{
+    /* height: 80dvh; */
+}
+
+/* card design */
+.card{
+    width: 300px;
+    border-radius: 17px;
+    box-shadow: 26px 22px 9px 2px whitesmoke, -2px -9px whitesmoke;
+}
+
+@media screen and (max-width:768){
+}
+
+.btn-outline-custom{
+    border-color: var(--color);
+}
+.btn-outline-custom:hover{
+    color:white;
+    background-color: var(--color);
+}

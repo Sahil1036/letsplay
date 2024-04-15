@@ -1,0 +1,985 @@
+@charset "UTF-8";
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400';
+
+.player .timeline .controllers .back,
+.player .timeline .controllers .play,
+.player .timeline .controllers .forward,
+.player .timeline .controllers,
+.player .timeline .volume,
+.player .head .infos,
+.player .head .front,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --color: #7E22CC;
+  --lightcolor: #aa75d9;
+  --bgColor: black;
+  --subColor: white;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+html {
+  height: 100%;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 20px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(141deg, var(--color) 0%, var(--lightcolor) 75%);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.rotation {
+  display: block;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -150px -150px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.3;
+  z-index: -1;
+  animation: 2s girandomt infinite forwards linear;
+}
+
+.player {
+  border-radius: 6px;
+  background-color: white;
+  margin: auto;
+  width: min(500px, 95%);
+  min-height: 200px;
+  box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.player .head {
+  padding: 15px;
+  color: white;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  height: auto;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.player .head .front {
+  position: relative;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.player .head .back {
+  height: 110%;
+  width: 110%;
+  top: -10px;
+  left: -10px;
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1471623817296-aa07ae5c9f47");
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.player .head .avatar {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.player .head .avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.player .head .infos {
+  justify-content: space-around;
+  flex-direction: column;
+  height: inherit;
+  align-items: baseline;
+}
+
+.player .head .tags span {
+  border-radius: 3px;
+  padding: 2px 11px;
+  margin: 1px 2px;
+  background-color: var(--lightcolor);
+  font-weight: bold;
+}
+
+.player .head .titulo_song {
+  font-size: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
+}
+
+.player .head .duracao_song {
+  font-size: 12px;
+  color: white;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.75);
+}
+
+.player .timeline {
+  height: auto;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.player .timeline .volume {
+  flex-direction: row;
+}
+
+.player .timeline .controllers.active .play {
+  box-shadow: 0px 0px 10px 2px var(--lightcolor);
+  animation: 3s pulseshadowplay infinite both;
+}
+
+.player .timeline .controllers .back,
+.player .timeline .controllers .play,
+.player .timeline .controllers .forward {
+  font-size: 16px;
+  margin: 10px;
+  color: #4A4A4A;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+
+.player .timeline .controllers .play {
+  transition: all 0.3s ease-in-out;
+}
+
+.player .timeline .controllers .play:hover {
+  box-shadow: 0px 0px 10px 2px var(--lightcolor);
+  border: 2px solid var(--color);
+}
+
+.player .timeline .controllers .back::after {
+  content: "";
+  font-family: "FontAwesome";
+  margin-right: 5px;
+}
+
+.player .timeline .controllers .play::after {
+  content: "";
+  font-family: "FontAwesome";
+  margin-left: 5px;
+}
+
+.player .timeline .controllers .forward::after {
+  content: "";
+  font-family: "FontAwesome";
+  margin-left: 5px;
+}
+
+.player .timeline .soundline {
+  width: 100%;
+  height: 6px;
+  position: relative;
+  background: #F3F3F3;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.player .timeline .soundline::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--color);
+  box-shadow: 0px 0px 9px var(--lightcolor);
+  transition: all 0.4s cubic-bezier(0.07, 0.82, 0.11, 1.02);
+  animation: 20s soundline infinite both linear;
+}
+
+@keyframes pulseshadowplay {
+  0% {
+    box-shadow: 0px 0px 10px 2px var(--lightcolor);
+  }
+
+  50% {
+    box-shadow: 0px 0px 50px 2px var(--color);
+  }
+}
+
+@keyframes soundline {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes girandomt {
+  0% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.8);
+  }
+
+  100% {
+    box-shadow: 0px 0px 30px 40px rgba(255, 255, 255, 0);
+  }
+}
+
+
+
+/* player */
+main {
+  width: 100%;
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+  height: 100dv;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.left {
+  position: fixed;
+  top: 50px;
+  height: 100dv;
+  padding: 10px;
+}
+
+.pages {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 10px;
+  margin: 6px 0px;
+}
+
+.pages svg {
+  height: 21px;
+  margin-right: 10px;
+}
+
+.pages svg path {
+  fill: lightgray;
+}
+
+.home-p svg path {
+  fill: white;
+}
+
+.home-p,
+.pages:hover {
+  color: white;
+  background: var(--color);
+}
+
+.pages:hover svg path {
+  fill: white;
+}
+
+.right {
+  display: flex;
+  position: relative;
+  top: 50px;
+  left: 160px;
+  flex-wrap: wrap;
+  width: 90%;
+  overflow: auto;
+  padding: 5px 0px;
+  margin-left: 10px;
+  padding-bottom: 300px;
+}
+
+.list {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  padding: 5px 0px;
+}
+
+.list div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* color:lightgray; */
+  cursor: pointer;
+  margin: 7px;
+  line-height: 1;
+}
+
+.list div img {
+  width: 150px;
+  filter: grayscale(60%);
+}
+
+.list div:hover img {
+  filter: grayscale(0%);
+}
+
+.list div p {
+  font-size: 20px;
+  margin-top: 5px;
+  font-weight: bolder;
+  margin-bottom: 0px;
+}
+
+.list div a {
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 20px;
+}
+
+/* player styling */
+.player-show {
+  display: none;
+}
+
+body .player_inner__middle .cube_inner>div {
+  width: 100dvw;
+  height: 95dvh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform-style: preserve-3D;
+}
+
+body .player_inner {
+  width: 380px;
+  height: min(60%, 500px);
+  border-radius: 6px;
+  perspective: 800px;
+}
+
+body .player_inner__middle .cube_inner__front {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/koan.png") !important;
+  background-size: 103% !important;
+  background-position-y: -71px !important;
+}
+
+body .player_inner__middle .cube_inner__front .bars {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: rotatez(180deg);
+  width: 100%;
+  z-index: 1;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar {
+  width: 10px;
+  background: white;
+  opacity: 0.1;
+  float: left;
+  width: 10%;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(1) {
+  -webkit-animation: eq 1s 32ms infinite ease-in-out;
+  animation: eq 1s 32ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(2) {
+  -webkit-animation: eq 1s 24ms infinite ease-in-out;
+  animation: eq 1s 24ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(3) {
+  -webkit-animation: eq 1s 105ms infinite ease-in-out;
+  animation: eq 1s 105ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(4) {
+  -webkit-animation: eq 1s 16ms infinite ease-in-out;
+  animation: eq 1s 16ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(5) {
+  -webkit-animation: eq 1s 30ms infinite ease-in-out;
+  animation: eq 1s 30ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(6) {
+  -webkit-animation: eq 1s 168ms infinite ease-in-out;
+  animation: eq 1s 168ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(7) {
+  -webkit-animation: eq 1s 7ms infinite ease-in-out;
+  animation: eq 1s 7ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(8) {
+  -webkit-animation: eq 1s 56ms infinite ease-in-out;
+  animation: eq 1s 56ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(9) {
+  -webkit-animation: eq 1s 27ms infinite ease-in-out;
+  animation: eq 1s 27ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(10) {
+  -webkit-animation: eq 1s 150ms infinite ease-in-out;
+  animation: eq 1s 150ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(11) {
+  -webkit-animation: eq 1s 99ms infinite ease-in-out;
+  animation: eq 1s 99ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(12) {
+  -webkit-animation: eq 1s 336ms infinite ease-in-out;
+  animation: eq 1s 336ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(13) {
+  -webkit-animation: eq 1s 221ms infinite ease-in-out;
+  animation: eq 1s 221ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(14) {
+  -webkit-animation: eq 1s 42ms infinite ease-in-out;
+  animation: eq 1s 42ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(15) {
+  -webkit-animation: eq 1s 420ms infinite ease-in-out;
+  animation: eq 1s 420ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(16) {
+  -webkit-animation: eq 1s 240ms infinite ease-in-out;
+  animation: eq 1s 240ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(17) {
+  -webkit-animation: eq 1s 289ms infinite ease-in-out;
+  animation: eq 1s 289ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(18) {
+  -webkit-animation: eq 1s 522ms infinite ease-in-out;
+  animation: eq 1s 522ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(19) {
+  -webkit-animation: eq 1s 76ms infinite ease-in-out;
+  animation: eq 1s 76ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(20) {
+  -webkit-animation: eq 1s 600ms infinite ease-in-out;
+  animation: eq 1s 600ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(21) {
+  -webkit-animation: eq 1s 147ms infinite ease-in-out;
+  animation: eq 1s 147ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(22) {
+  -webkit-animation: eq 1s 550ms infinite ease-in-out;
+  animation: eq 1s 550ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(23) {
+  -webkit-animation: eq 1s 644ms infinite ease-in-out;
+  animation: eq 1s 644ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(24) {
+  -webkit-animation: eq 1s 768ms infinite ease-in-out;
+  animation: eq 1s 768ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(25) {
+  -webkit-animation: eq 1s 625ms infinite ease-in-out;
+  animation: eq 1s 625ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(26) {
+  -webkit-animation: eq 1s 936ms infinite ease-in-out;
+  animation: eq 1s 936ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(27) {
+  -webkit-animation: eq 1s 108ms infinite ease-in-out;
+  animation: eq 1s 108ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(28) {
+  -webkit-animation: eq 1s 84ms infinite ease-in-out;
+  animation: eq 1s 84ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(29) {
+  -webkit-animation: eq 1s 986ms infinite ease-in-out;
+  animation: eq 1s 986ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(30) {
+  -webkit-animation: eq 1s 120ms infinite ease-in-out;
+  animation: eq 1s 120ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(31) {
+  -webkit-animation: eq 1s 899ms infinite ease-in-out;
+  animation: eq 1s 899ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(32) {
+  -webkit-animation: eq 1s 160ms infinite ease-in-out;
+  animation: eq 1s 160ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(33) {
+  -webkit-animation: eq 1s 1122ms infinite ease-in-out;
+  animation: eq 1s 1122ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(34) {
+  -webkit-animation: eq 1s 272ms infinite ease-in-out;
+  animation: eq 1s 272ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(35) {
+  -webkit-animation: eq 1s 735ms infinite ease-in-out;
+  animation: eq 1s 735ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(36) {
+  -webkit-animation: eq 1s 720ms infinite ease-in-out;
+  animation: eq 1s 720ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(37) {
+  -webkit-animation: eq 1s 592ms infinite ease-in-out;
+  animation: eq 1s 592ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(38) {
+  -webkit-animation: eq 1s 1444ms infinite ease-in-out;
+  animation: eq 1s 1444ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(39) {
+  -webkit-animation: eq 1s 1170ms infinite ease-in-out;
+  animation: eq 1s 1170ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(40) {
+  -webkit-animation: eq 1s 1200ms infinite ease-in-out;
+  animation: eq 1s 1200ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(41) {
+  -webkit-animation: eq 1s 1066ms infinite ease-in-out;
+  animation: eq 1s 1066ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(42) {
+  -webkit-animation: eq 1s 504ms infinite ease-in-out;
+  animation: eq 1s 504ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(43) {
+  -webkit-animation: eq 1s 731ms infinite ease-in-out;
+  animation: eq 1s 731ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(44) {
+  -webkit-animation: eq 1s 1408ms infinite ease-in-out;
+  animation: eq 1s 1408ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(45) {
+  -webkit-animation: eq 1s 765ms infinite ease-in-out;
+  animation: eq 1s 765ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(46) {
+  -webkit-animation: eq 1s 1840ms infinite ease-in-out;
+  animation: eq 1s 1840ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(47) {
+  -webkit-animation: eq 1s 1598ms infinite ease-in-out;
+  animation: eq 1s 1598ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(48) {
+  -webkit-animation: eq 1s 528ms infinite ease-in-out;
+  animation: eq 1s 528ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(49) {
+  -webkit-animation: eq 1s 833ms infinite ease-in-out;
+  animation: eq 1s 833ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(50) {
+  -webkit-animation: eq 1s 1100ms infinite ease-in-out;
+  animation: eq 1s 1100ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(51) {
+  -webkit-animation: eq 1s 510ms infinite ease-in-out;
+  animation: eq 1s 510ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(52) {
+  -webkit-animation: eq 1s 1508ms infinite ease-in-out;
+  animation: eq 1s 1508ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(53) {
+  -webkit-animation: eq 1s 1696ms infinite ease-in-out;
+  animation: eq 1s 1696ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(54) {
+  -webkit-animation: eq 1s 1404ms infinite ease-in-out;
+  animation: eq 1s 1404ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(55) {
+  -webkit-animation: eq 1s 330ms infinite ease-in-out;
+  animation: eq 1s 330ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(56) {
+  -webkit-animation: eq 1s 1904ms infinite ease-in-out;
+  animation: eq 1s 1904ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(57) {
+  -webkit-animation: eq 1s 399ms infinite ease-in-out;
+  animation: eq 1s 399ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(58) {
+  -webkit-animation: eq 1s 116ms infinite ease-in-out;
+  animation: eq 1s 116ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(59) {
+  -webkit-animation: eq 1s 1121ms infinite ease-in-out;
+  animation: eq 1s 1121ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(60) {
+  -webkit-animation: eq 1s 1620ms infinite ease-in-out;
+  animation: eq 1s 1620ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(61) {
+  -webkit-animation: eq 1s 915ms infinite ease-in-out;
+  animation: eq 1s 915ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(62) {
+  -webkit-animation: eq 1s 1860ms infinite ease-in-out;
+  animation: eq 1s 1860ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(63) {
+  -webkit-animation: eq 1s 1323ms infinite ease-in-out;
+  animation: eq 1s 1323ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(64) {
+  -webkit-animation: eq 1s 128ms infinite ease-in-out;
+  animation: eq 1s 128ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(65) {
+  -webkit-animation: eq 1s 975ms infinite ease-in-out;
+  animation: eq 1s 975ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(66) {
+  -webkit-animation: eq 1s 264ms infinite ease-in-out;
+  animation: eq 1s 264ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(67) {
+  -webkit-animation: eq 1s 1340ms infinite ease-in-out;
+  animation: eq 1s 1340ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(68) {
+  -webkit-animation: eq 1s 2720ms infinite ease-in-out;
+  animation: eq 1s 2720ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(69) {
+  -webkit-animation: eq 1s 1242ms infinite ease-in-out;
+  animation: eq 1s 1242ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(70) {
+  -webkit-animation: eq 1s 2800ms infinite ease-in-out;
+  animation: eq 1s 2800ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(71) {
+  -webkit-animation: eq 1s 1349ms infinite ease-in-out;
+  animation: eq 1s 1349ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(72) {
+  -webkit-animation: eq 1s 2592ms infinite ease-in-out;
+  animation: eq 1s 2592ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(73) {
+  -webkit-animation: eq 1s 2263ms infinite ease-in-out;
+  animation: eq 1s 2263ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(74) {
+  -webkit-animation: eq 1s 1480ms infinite ease-in-out;
+  animation: eq 1s 1480ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(75) {
+  -webkit-animation: eq 1s 975ms infinite ease-in-out;
+  animation: eq 1s 975ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(76) {
+  -webkit-animation: eq 1s 2128ms infinite ease-in-out;
+  animation: eq 1s 2128ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(77) {
+  -webkit-animation: eq 1s 1386ms infinite ease-in-out;
+  animation: eq 1s 1386ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(78) {
+  -webkit-animation: eq 1s 2262ms infinite ease-in-out;
+  animation: eq 1s 2262ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(79) {
+  -webkit-animation: eq 1s 474ms infinite ease-in-out;
+  animation: eq 1s 474ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(80) {
+  -webkit-animation: eq 1s 1440ms infinite ease-in-out;
+  animation: eq 1s 1440ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(81) {
+  -webkit-animation: eq 1s 2754ms infinite ease-in-out;
+  animation: eq 1s 2754ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(82) {
+  -webkit-animation: eq 1s 1066ms infinite ease-in-out;
+  animation: eq 1s 1066ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(83) {
+  -webkit-animation: eq 1s 1992ms infinite ease-in-out;
+  animation: eq 1s 1992ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(84) {
+  -webkit-animation: eq 1s 3192ms infinite ease-in-out;
+  animation: eq 1s 3192ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(85) {
+  -webkit-animation: eq 1s 2210ms infinite ease-in-out;
+  animation: eq 1s 2210ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(86) {
+  -webkit-animation: eq 1s 3440ms infinite ease-in-out;
+  animation: eq 1s 3440ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(87) {
+  -webkit-animation: eq 1s 1479ms infinite ease-in-out;
+  animation: eq 1s 1479ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(88) {
+  -webkit-animation: eq 1s 176ms infinite ease-in-out;
+  animation: eq 1s 176ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(89) {
+  -webkit-animation: eq 1s 2314ms infinite ease-in-out;
+  animation: eq 1s 2314ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(90) {
+  -webkit-animation: eq 1s 2160ms infinite ease-in-out;
+  animation: eq 1s 2160ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(91) {
+  -webkit-animation: eq 1s 2730ms infinite ease-in-out;
+  animation: eq 1s 2730ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(92) {
+  -webkit-animation: eq 1s 2852ms infinite ease-in-out;
+  animation: eq 1s 2852ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(93) {
+  -webkit-animation: eq 1s 3255ms infinite ease-in-out;
+  animation: eq 1s 3255ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(94) {
+  -webkit-animation: eq 1s 1598ms infinite ease-in-out;
+  animation: eq 1s 1598ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(95) {
+  -webkit-animation: eq 1s 1425ms infinite ease-in-out;
+  animation: eq 1s 1425ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(96) {
+  -webkit-animation: eq 1s 3360ms infinite ease-in-out;
+  animation: eq 1s 3360ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(97) {
+  -webkit-animation: eq 1s 1067ms infinite ease-in-out;
+  animation: eq 1s 1067ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(98) {
+  -webkit-animation: eq 1s 1666ms infinite ease-in-out;
+  animation: eq 1s 1666ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(99) {
+  -webkit-animation: eq 1s 792ms infinite ease-in-out;
+  animation: eq 1s 792ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .bars_bar:nth-of-type(100) {
+  -webkit-animation: eq 1s 3600ms infinite ease-in-out;
+  animation: eq 1s 3600ms infinite ease-in-out;
+}
+
+body .player_inner__middle .cube_inner__front .details {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  text-align: center;
+}
+
+body .player_inner__middle .cube_inner__front .details_album {
+  width: 90px;
+  height: 90px;
+  background-size: cover !important;
+  background: white;
+  border-radius: 4px;
+  margin: 0 auto;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/koanalbum.png");
+  margin-bottom: 20px;
+}
+
+body .player_inner__middle .cube_inner__front .details h2 {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+}
+
+body .player_inner__middle .cube_inner__front .details h3 {
+  font-size: 10px;
+  margin: 0;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+
+@-webkit-keyframes eq {
+  0% {
+    height: 30px;
+  }
+
+  50% {
+    height: 100px;
+  }
+
+  100% {
+    height: 30px;
+  }
+}
+
+@keyframes eq {
+  0% {
+    height: 30px;
+  }
+
+  50% {
+    height: 100px;
+  }
+
+  100% {
+    height: 30px;
+  }
+}
