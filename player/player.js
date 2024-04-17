@@ -25,7 +25,7 @@ async function addData(query) {
     addmusicCard();
 }
 
-const song=["tranding now","ram","hindi song","New song","how"];
+const song=["tranding now","Today’s Top Hits","All Out 2020s","All Out 80s","New song","how","Dinner with Friends","Chillout Lounge","Chill Hits","Stress Relief","Peaceful Piano"];
 song.forEach((e)=>{
    addData(e);
 });
