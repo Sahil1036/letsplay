@@ -19,6 +19,7 @@ body {
   --lightcolor: #aa75d9;
   --bgColor: black;
   --subColor: white;
+  --music-width:0%;
 }
 
 header {
@@ -100,7 +101,7 @@ body {
   position: absolute;
   background-position: center;
   background-size: cover;
-  background-image: url("https://images.unsplash.com/photo-1471623817296-aa07ae5c9f47");
+  background-image: url("backMusic.avif");
   -webkit-filter: blur(5px);
   filter: blur(5px);
 }
@@ -190,12 +191,6 @@ body {
   margin-right: 5px;
 }
 
-.player .timeline .controllers .play::after {
-  content: "";
-  font-family: "FontAwesome";
-  margin-left: 5px;
-}
-
 .player .timeline .controllers .forward::after {
   content: "";
   font-family: "FontAwesome";
@@ -217,12 +212,12 @@ body {
   content: "";
   top: 0;
   left: 0;
-  width: 0%;
+  width: var(--music-width) ;
   height: 100%;
   background: var(--color);
   box-shadow: 0px 0px 9px var(--lightcolor);
   transition: all 0.4s cubic-bezier(0.07, 0.82, 0.11, 1.02);
-  animation: 20s soundline infinite both linear;
+  /* animation: 20s soundline infinite both linear; */
 }
 
 @keyframes pulseshadowplay {
@@ -261,9 +256,8 @@ body {
 main {
   width: 100%;
   display: flex;
-  flex: wrap;
   justify-content: space-between;
-  height: 100dv;
+  height: 100dvh;
   background-color: white;
   margin: auto;
   box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.2);
@@ -317,12 +311,11 @@ main {
   position: relative;
   top: 50px;
   left: 160px;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 90%;
   overflow: auto;
-  padding: 5px 0px;
+  padding: 0px 130px 300px 0;
   margin-left: 10px;
-  padding-bottom: 300px;
 }
 
 .list {
@@ -336,6 +329,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 150px;
+  height: 220px;
   /* color:lightgray; */
   cursor: pointer;
   margin: 7px;
@@ -351,16 +346,15 @@ main {
   filter: grayscale(0%);
 }
 
-.list div p {
-  font-size: 20px;
+.song{
+  font-size: 15px;
   margin-top: 5px;
   font-weight: bolder;
-  margin-bottom: 0px;
 }
-
-.list div a {
-  font-size: 20px;
-  margin-top: 3px;
+.music{
+  margin-top: -10px;
+font-size: 15px;
+overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -380,6 +374,7 @@ main {
 /* player styling */
 .player-show {
   display: none;
+  transition: display 3s ease-in-out;
 }
 
 body .player_inner__middle .cube_inner>div {
@@ -399,9 +394,8 @@ body .player_inner {
 }
 
 body .player_inner__middle .cube_inner__front {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/koan.png") !important;
-  background-size: 103% !important;
-  background-position-y: -71px !important;
+  background: url(backMusic.avif) top center ;
+  background-size: cover;
 }
 
 body .player_inner__middle .cube_inner__front .bars {
@@ -938,11 +932,11 @@ body .player_inner__middle .cube_inner__front .details_album {
   background: white;
   border-radius: 4px;
   margin: 0 auto;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/koanalbum.png");
+  background: url("backMusic.avif");
   margin-bottom: 20px;
 }
 
-body .player_inner__middle .cube_inner__front .details h2 {
+/* body .player_inner__middle .cube_inner__front .details h2 {
   font-size: 12px;
   font-weight: 600;
   margin: 0;
@@ -953,7 +947,7 @@ body .player_inner__middle .cube_inner__front .details h3 {
   margin: 0;
   opacity: 0.6;
   font-weight: 400;
-}
+} */
 
 
 @-webkit-keyframes eq {
