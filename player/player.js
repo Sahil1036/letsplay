@@ -1,5 +1,3 @@
-
-
 // fetching data
 const url = "https://api-jiosaavn.vercel.app/song/?query=";
 const right = document.querySelector(".right");
@@ -27,20 +25,44 @@ async function addData(query) {
     addmusicCard();
 }
 
-addData("ram");
-addData("New song");
-addData("how");
+const song=["tranding now","ram","hindi song","New song","how"];
+song.forEach((e)=>{
+   addData(e);
+});
 
 // search data
+const searching=document.querySelector(".searching");
 const search=document.querySelector(".search");
 const searchBtn=document.querySelector("#search");
 const searchQuary=document.querySelector("#searchQuary");
 searchBtn.addEventListener("click",async(e)=>{
-    debugger
-    const element=await fetching(searchQuary.value);
-    search.innerHTML=element;
+  e.preventDefault();
+  if(!searchQuary.value)
+  return;
+  search.style.display="block";
+  
+    const fetchData = await fetch(url + searchQuary.value);
+    const data = await fetchData.json();
+
+  if(data.length==0||data.status==false){
+    searching.innerHTML="sorry this song is not found!";
+   setTimeout(()=>{
+      searching.innerHTML="";
+  search.style.display="none";
+    },1000);
+  }
+
+  const elementList = document.createElement("div");
+  elementList.className = "list";
+  data.map((e) => {
+      elementList.innerHTML += `<div class="music-card" release_date=${e.release_date} data-music=${e.media_url}>
+      <img src=${e.image} alt="song - image">
+      <p class="song">${e.song}</p>
+      <p class="music">${e.music.slice(0,40)}...</p>
+      </div>`;
+    });
+    searching.prepend(elementList);
     addmusicCard();
-    console.log(search)
 });
 
 // player working
@@ -119,7 +141,19 @@ function setimage(e) {
   duracao_song.innerHTML = `Release date - ${e.getAttribute("release_date")}`;
   musicPlay.src = e.getAttribute("data-music");
   headback.style.backgroundImage = `url(${src})`;
-//   cube_inner__front.style.backgroundImage = `url(${src})`;
+  if(screen.width<350)
+  cube_inner__front.style.backgroundImage = `url(${src})`;
   details_album.style.backgroundImage = `url(${src})`;
   avatar.src = src;
 }
+
+
+// left navigation
+const searchP=document.querySelector(".search-p");
+const homeP=document.querySelector(".home-p");
+homeP.addEventListener("click",()=>{
+ search.style.display="none";
+});
+searchP.addEventListener("click",()=>{
+  searchQuary.focus();
+});

@@ -57,10 +57,3 @@ section{
 @media screen and (max-width:768){
 }
 
-.btn-outline-custom{
-    border-color: var(--color);
-}
-.btn-outline-custom:hover{
-    color:white;
-    background-color: var(--color);
-}
