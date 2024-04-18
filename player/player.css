@@ -20,6 +20,7 @@ body {
   --bgColor: black;
   --subColor: white;
   --music-width:0%;
+  --progress-width:0px;
 }
 
 header {
@@ -37,6 +38,7 @@ footer {
   width: 100%;
   position: fixed;
   bottom: 20px;
+  z-index: 5;
 }
 
 body {
@@ -379,10 +381,11 @@ overflow: hidden;
 
 body .player_inner__middle .cube_inner>div {
   width: 100dvw;
-  height: 95dvh;
+  height: 75dvh;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
+  z-index: 4;
   transform-style: preserve-3D;
 }
 
@@ -1005,15 +1008,18 @@ body .player_inner__middle .cube_inner__front .details h3 {
     top: 100px;
   }
 }
-@media screen and (max-width:350px){
+@media screen and (max-width:400px){
   .right{
     left: 50px;
   }
   .list{
-    width: 190%;
+    width: 160%;
   }
   .pages span{
     display: none;
+  }
+  .pages svg{
+    margin: 0;
   }
 }
 
@@ -1025,4 +1031,72 @@ body .player_inner__middle .cube_inner__front .details h3 {
   .list div img{
     width: 200px;
   }
+}
+
+#progress{
+  -webkit-appearance: none;
+  width: max(30%,200px);
+  height: 6px;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+#progress::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  background: #fff;
+position: relative;
+
+transition: all 0.4s cubic-bezier(0.07, 0.82, 0.11, 1.02);
+  z-index: 7;
+   width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 8px solid var(--color);
+  box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+}
+
+#progress::after {
+  display: block;
+  
+  content: "";
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  width: 20px;
+  width: var(--progress-width);
+  background: var(--color);
+  height: 6px;
+  box-shadow: 0px 0px 9px var(--lightcolor);
+  transition: all 0.4s cubic-bezier(0.07, 0.82, 0.11, 1.02);
+  /* animation: 20s soundline infinite both linear; */
+}
+
+#progress::-webkit-slider-thumb:hover{
+  width: 30px;
+  height: 30px;
+}
+
+.timeDuration{
+  width: max(30%,200px);
+  margin-top: 5px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.backsong i{
+  /* color: var(--color); */
+  /* border: 2px solid var(--color); */
+  opacity: .7;
+  border-radius: 50%;
+  color: white;
+  background-color: black;
+  padding: 6px;
+  font-size: 30px;
+  margin: 20px;
+}
+
+.library{
+  display: none;
 }
