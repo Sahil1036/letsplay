@@ -19,8 +19,8 @@ body {
   --lightcolor: #aa75d9;
   --bgColor: black;
   --subColor: white;
-  --music-width:0%;
-  --progress-width:0px;
+  --music-width: 0%;
+  --progress-width: 0px;
 }
 
 header {
@@ -214,7 +214,7 @@ body {
   content: "";
   top: 0;
   left: 0;
-  width: var(--music-width) ;
+  width: var(--music-width);
   height: 100%;
   background: var(--color);
   box-shadow: 0px 0px 9px var(--lightcolor);
@@ -332,7 +332,7 @@ main {
   flex-direction: column;
   align-items: flex-start;
   width: 150;
-    height: 205px;
+  height: 205px;
   /* color:lightgray; */
   cursor: pointer;
   margin: 7px;
@@ -348,15 +348,16 @@ main {
   filter: grayscale(0%);
 }
 
-.song{
+.song {
   font-size: 15px;
   margin-top: 5px;
   font-weight: bolder;
 }
-.music{
+
+.music {
   margin-top: -10px;
-font-size: 15px;
-overflow: hidden;
+  font-size: 15px;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -397,7 +398,7 @@ body .player_inner {
 }
 
 body .player_inner__middle .cube_inner__front {
-  background: url(backMusic.avif) top center ;
+  background: url(backMusic.avif) top center;
   background-size: cover;
 }
 
@@ -984,72 +985,85 @@ body .player_inner__middle .cube_inner__front .details h3 {
 
 
 /* left navigation */
-.search{
+.search {
   display: none;
 }
 
-.btn-outline-custom{
+.btn-outline-custom {
   border-color: var(--color);
 }
-.btn-outline-custom:hover{
-  color:white;
+
+.btn-outline-custom:hover {
+  color: white;
   background-color: var(--color);
 }
 
-.navbar-brand{
+.navbar-brand {
   color: var(--color);
   font-weight: bolder;
 }
 
 
 /* reponsive */
-@media screen and (max-width:450px){
-  .left,.right{
+@media screen and (max-width:450px) {
+
+  .left,
+  .right {
     top: 100px;
   }
 }
-@media screen and (max-width:400px){
-  .right{
+
+@media screen and (max-width:400px) {
+  .right {
     left: 50px;
   }
-  .list{
+
+  .list {
     width: 160%;
   }
-  .pages span{
+
+  .pages span {
     display: none;
   }
-  .pages svg{
+
+  header form {
+    margin: auto;
+  }
+
+  .pages svg {
     margin: 0;
   }
 }
 
-@media screen and (min-width:850px){
-  .list div{
+@media screen and (min-width:850px) {
+  .list div {
     width: 225px;
     height: 255px;
   }
-  .list div img{
+
+  .list div img {
     width: 200px;
   }
 }
 
-#progress{
+#progress {
   -webkit-appearance: none;
-  width: max(30%,200px);
+  width: max(30%, 200px);
   height: 6px;
   background: white;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 20px;
 }
-#progress::-webkit-slider-thumb{
+
+#progress::-webkit-slider-thumb {
   -webkit-appearance: none;
   background: #fff;
-position: relative;
+  position: relative;
 
-transition: all 0.4s cubic-bezier(0.07, 0.82, 0.11, 1.02);
+  transition: all 0.4s cubic-bezier(0.07, 0.82, 0.11, 1.02);
   z-index: 7;
-   width: 20px;
+  width: 20px;
   height: 20px;
   border-radius: 50%;
   border: 8px solid var(--color);
@@ -1058,11 +1072,8 @@ transition: all 0.4s cubic-bezier(0.07, 0.82, 0.11, 1.02);
 
 #progress::after {
   display: block;
-  
   content: "";
   position: absolute;
-  /* top: 0; */
-  /* left: 0; */
   width: 20px;
   width: var(--progress-width);
   background: var(--color);
@@ -1072,31 +1083,38 @@ transition: all 0.4s cubic-bezier(0.07, 0.82, 0.11, 1.02);
   /* animation: 20s soundline infinite both linear; */
 }
 
-#progress::-webkit-slider-thumb:hover{
+#progress::-webkit-slider-thumb:hover {
   width: 30px;
   height: 30px;
 }
 
-.timeDuration{
-  width: max(30%,200px);
+.timeDuration {
+  width: max(30%, 200px);
   margin-top: 5px;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
 
-.backsong i{
-  /* color: var(--color); */
-  /* border: 2px solid var(--color); */
-  opacity: .7;
+.backsong i {
   border-radius: 50%;
   color: white;
   background-color: black;
-  padding: 6px;
+  padding: 7px;
   font-size: 30px;
   margin: 20px;
+  background: #fff;
+  color: var(--color);
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(255, 26, 26, 0.22);
+  width: 45px;
+  height: 45px;
 }
 
-.library{
+.library {
+  display: none;
+}
+
+.favourite {
   display: none;
 }

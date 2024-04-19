@@ -1,65 +1,59 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-:root{
-    --color:#8236c5;
-    --lightcolor:#aa75d9;
-    --bgColor:black;
-    --subColor:white;
+:root {
+    --color: #8236c5;
+    --lightcolor: #aa75d9;
+    --bgColor: black;
+    --subColor: white;
 }
 
-body{
+body {
     transition: all .6s ease-in-out;
 }
 
-header{
-    color:var(--color);
+header {
+    color: var(--color);
     background-color: var(--bgColor);
 }
 
 
-.line_gap{
+.line_gap {
     height: 5px;
     width: 83.333%;
     margin: auto;
     background-color: var(--color);
 }
 
-ul li a:hover{
+ul li a:hover {
     text-decoration: overline solid 3px;
 }
 
-.handel_dark{
+.handel_dark {
     color: var(--bgColor);
     background-color: var(--color);
 }
 
-.handel_dark_box{
+.handel_dark_box {
     color: var(--subColor);
     background-color: var(--color);
 }
 
-.head_bottom_content p{
-    /* width: 350px; */
-    /* border-radius: 25px; */
-    /* margin: auto; */
-}
-
-section{
-    /* height: 80dvh; */
-}
-
 /* card design */
-.card{
+.card {
     width: 300px;
     border-radius: 17px;
     box-shadow: 26px 22px 9px 2px whitesmoke, -2px -9px whitesmoke;
 }
 
-@media screen and (max-width:768px){
-    .right ul{
+@media screen and (max-width:768px) {
+    .card {
+        margin: 20px;
+    }
+
+    .right ul {
         padding: 10px;
         position: absolute;
         font-size: 40px;
@@ -70,21 +64,22 @@ section{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transform: scale(0);   
-        border: 2px solid black; 
-        border-radius: 20px;   
-  transition: all 0.4s ease-in-out;
+        transform: scale(0);
+        border: 2px solid black;
+        border-radius: 20px;
+        transition: all 0.4s ease-in-out;
     }
 
-    .right ul li{
+    .right ul li {
         margin: 10px;
+        color: rgb(168, 85, 247);
     }
 
-    .right ul li:hover{
+    .right ul li:hover {
         text-decoration: underline;
     }
 
-    header nav{
+    header nav {
         position: fixed;
         border: 2px solid black;
         background-color: black;
@@ -94,7 +89,7 @@ section{
         z-index: 1;
     }
 
-    .head_left_content{
+    .head_left_content {
         margin-top: 20px;
     }
 }

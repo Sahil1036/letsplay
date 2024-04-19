@@ -1,6 +1,7 @@
 
 // fetching data
-const url = "";
+const url = "https://api-jiosaavn.vercel.app/song/?query=";
+const key="?????????????????????";
 const right = document.querySelector(".right");
 async function fetching(query) {
   const fetchData = await fetch(url + query);
@@ -14,8 +15,8 @@ async function fetching(query) {
       e.release_date
     } data-music=${e.media_url}>
       <img src=${e.image} alt="song - image">
-      <p class="song">${e.song} </p>
-      <p class="music">${e.music.slice(0, 40)}...</p>
+      <p class="song">${e.song.slice(0, 15)} </p>
+      <p class="music">${e.music.slice(0, 20)}...</p>
       </div>`;
   });
   element.append(elementList);
@@ -24,8 +25,8 @@ async function fetching(query) {
 
 async function addData(query) {
   const element = await fetching(query);
-  const append=document.createElement("h2");
-  append.innerHTML=`${query[0].toUpperCase() + query.slice(1)}`;
+  const append = document.createElement("h2");
+  append.innerHTML = `${query[0].toUpperCase() + query.slice(1)}`;
   element.prepend(append);
   right.append(element);
   addmusicCard();
@@ -47,7 +48,6 @@ const song = [
 song.forEach((e) => {
   addData(e);
 });
-
 
 // search data
 const searching = document.querySelector(".searching");
@@ -83,11 +83,10 @@ searchBtn.addEventListener("click", async (e) => {
       </div>`;
   });
   searching.prepend(elementList);
-  let element=searching.querySelectorAll(".list");
-  if(element[3])
-  element[3].remove();
+  let element = searching.querySelectorAll(".list");
+  if (element[3]) element[3].remove();
   addmusicCard();
-  right.scrollTo(0,0);
+  right.scrollTo(0, 0);
 });
 
 // player working
@@ -99,7 +98,7 @@ const progress = document.querySelector("#progress");
 const duration = document.querySelector(".timeDuration .duration");
 const current = document.querySelector(".timeDuration .current");
 play.addEventListener("click", () => {
-    playmusic();
+  playmusic();
 });
 
 function playmusic() {
@@ -114,27 +113,27 @@ function playmusic() {
 }
 
 setInterval(() => {
-  progress.max=musicPlay.duration;
-  current.innerHTML=numToTime(musicPlay.currentTime);
-  duration.innerHTML=numToTime(musicPlay.duration);
+  progress.max = musicPlay.duration;
+  current.innerHTML = numToTime(musicPlay.currentTime);
+  duration.innerHTML = numToTime(musicPlay.duration);
   if (musicPlay.duration === musicPlay.currentTime)
     play.querySelector("i").classList.replace("fa-pause", "fa-play");
-    let progressvalue=(musicPlay.currentTime / musicPlay.duration) * 100;
+  let progressvalue = (musicPlay.currentTime / musicPlay.duration) * 100;
   document.documentElement.style.setProperty(
     "--music-width",
     `${progressvalue}%`
   );
-   progressvalue=(progressvalue*progress.offsetWidth)/100;
+  progressvalue = (progressvalue * progress.offsetWidth) / 100;
   document.documentElement.style.setProperty(
     "--progress-width",
     `${progressvalue}px`
   );
-  progress.value=musicPlay.currentTime;
+  progress.value = musicPlay.currentTime;
 }, 400);
 
 // set current music location
-progress.addEventListener("change",()=>{
-  musicPlay.currentTime=progress.value;
+progress.addEventListener("change", () => {
+  musicPlay.currentTime = progress.value;
 });
 
 function numToTime(num) {
@@ -151,17 +150,23 @@ function numToTime(num) {
   }
 
   // Return the time string.
-  return hours + ":" + `${Math.floor(minutes)>9?Math.floor(minutes):'0'+Math.floor(minutes)}`;
+  return (
+    hours +
+    ":" +
+    `${
+      Math.floor(minutes) > 9 ? Math.floor(minutes) : "0" + Math.floor(minutes)
+    }`
+  );
 }
 
 back.addEventListener("click", () => {
-    musicPlay.currentTime -= 10;
-    console.log(musicPlay.currentTime);
+  musicPlay.currentTime -= 10;
+  console.log(musicPlay.currentTime);
 });
 
 forward.addEventListener("click", () => {
-    musicPlay.currentTime += 10;
-    console.log(musicPlay.currentTime);
+  musicPlay.currentTime += 10;
+  console.log(musicPlay.currentTime);
 });
 
 // full size player
@@ -171,14 +176,15 @@ const closePlayer = document.querySelectorAll(".close-player");
 const showPlayer = document.querySelector(".player-show");
 openPlayer.addEventListener("click", () => {
   showPlayer.style.display = "block";
-  player.style.width="100dvw";
-  player.style.height="30dvh";
-  player.style.transform="translateY(25px)";
-
+  player.style.width = "100dvw";
+  player.style.height = "30dvh";
+  player.style.transform = "translateY(25px)";
 });
-closePlayer.forEach(e=>{
+closePlayer.forEach((e) => {
   e.addEventListener("click", () => {
     showPlayer.style.display = "none";
+    player.style.width = "min(95%,500px)";
+    player.style.transform = "translateY(0)";
   });
 });
 
@@ -189,6 +195,7 @@ const details_album = document.querySelector(".details_album");
 const details = document.querySelector(".details h2");
 const titulo_song = document.querySelector(".titulo_song");
 const duracao_song = document.querySelector(".duracao_song i");
+const download = document.querySelector(".download a");
 async function addmusicCard() {
   let musicCard = document.querySelectorAll(".music-card");
   musicCard.forEach((e) => {
@@ -223,20 +230,29 @@ const searchP = document.querySelector(".search-p");
 const homeP = document.querySelector(".home-p");
 const pages = document.querySelectorAll(".pages");
 const library = document.querySelector(".library");
+const favourite = document.querySelector(".favourite");
 homeP.addEventListener("click", () => {
   search.style.display = "none";
   library.style.display = "none";
+  favourite.style.display = "none";
 });
 searchP.addEventListener("click", () => {
   library.style.display = "none";
+  favourite.style.display = "none";
   searchQuary.focus();
 });
-pages[2].addEventListener("click",()=>{
+pages[2].addEventListener("click", () => {
   library.style.display = "block";
-  right.scrollTo(0,0);
+  right.scrollTo(0, 0);
+  search.style.display = "none";
+  favourite.style.display = "none";
+});
+pages[3].addEventListener("click", () => {
+  right.scrollTo(0, 0);
+  favourite.style.display = "block";
+  library.style.display = "none";
   search.style.display = "none";
 });
-const element=await fetching("Today’s Top Hits");
-console.log(library);
+const element = await fetching("Today’s Top Hits");
 library.append(element);
 addmusicCard();
